@@ -25,6 +25,11 @@ namespace NoteForge.Infrastructure.Extensions
             })
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
+            // TODO: Add goodle and github and authentication
+            services.AddAuthentication(options =>
+            {
+
+            })
 
             return services;
         }

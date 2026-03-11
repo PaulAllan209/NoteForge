@@ -10,4 +10,12 @@
 	    <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.16.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NoteForge.Domain\NoteForge.Domain.csproj" />
+    </ItemGroup>
+
 </Project>

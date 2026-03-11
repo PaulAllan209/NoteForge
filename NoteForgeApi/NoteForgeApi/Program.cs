@@ -1,4 +1,5 @@
 using Microsoft.OpenApi.Models;
+using NoteForge.Application.Extensions;
 using NoteForge.Infrastructure.Extensions;
 using NoteForge.Logging;
 using NoteForgeApi.Middlewares;
@@ -10,11 +11,13 @@ builder.Host.UseSerilogLogging();
 
 builder.Services.AddDatabaseServices(builder.Configuration);
 builder.Services.AddIdentityServices(builder.Configuration);
+builder.Services.AddInfrastructureServices();
 
 // Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 
+builder.Services.AddApplicationServices();
 builder.Services.AddRepositories();
 
 // Add Swagger/OpenApi

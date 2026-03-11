@@ -9,9 +9,13 @@
         public string BlobName { get; private set; }
         public string FileName { get; private set; }
 
-        public MarkdownFile(int appUserId)
+        private MarkdownFile() {}
+        public MarkdownFile(AppUser appUser, string blobName, string fileName)
         {
-            AppUserId = appUserId;
+            AppUser = appUser;
+            BlobName = blobName;
+            FileName = fileName;
         }
+        
     }
 }

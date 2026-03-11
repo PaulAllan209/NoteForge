@@ -16,6 +16,8 @@ namespace NoteForge.Infrastructure
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<MarkdownFile> MarkdownFile { get; set; }
+        public DbSet<AuthorizationCode> AuthorizationCode { get; set; }
+        public DbSet<RefreshToken> RefreshToken { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -15,9 +15,12 @@ namespace NoteForge.Domain
         public DateTime? LastModifiedAtUtc { get; private set; }
         public string? LastModifiedBy { get; private set; }
 
-        private AppUser()
+        public AppUser(string userName, string email, string createdBy)
         {
-
+            UserName = userName;
+            Email = email;
+            CreatedAtUtc = DateTime.UtcNow;
+            CreatedBy = createdBy;
         }
     }
 }

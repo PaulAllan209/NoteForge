@@ -8,7 +8,10 @@ namespace NoteForge.Infrastructure.Extensions
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IBlobStorageRepository, LocalBlobStorageRepository>();
+            services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+            services.AddScoped<IAuthorizationCodeRepository, AuthorizationCodeRepository>();
 
             return services;
         }
