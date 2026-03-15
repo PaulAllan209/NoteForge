@@ -57,36 +57,6 @@ namespace NoteForge.Application.Auth.Services
             return await strategy.GenerateTokenAsync(request, cancellationToken);
         }
 
-        public async Task<AuthorizeResponseDto> AuthorizeAsync(AuthorizeRequestDto request, string userId, CancellationToken cancellationToken = default)
-        {
-            if (request.ResponseType != "code")
-            {
-                throw new ArgumentException("Only 'code' response type is supported");
-            }
-
-            if (request.CodeChallengeMethod != "S256")
-            {
-                throw new ArgumentException("Only S256 code challenge method is supported");
-            }
-
-            var user = await userManager.FindByIdAsync(userId)
-                ?? throw new UnauthorizedAccessException("User not found");
-
-            var code = tokenService.GenerateAuthorizationCode();
-            var authCode = new AuthorizationCode(
-                user,
-                code,
-                request.CodeChallenge,
-                request.RedirectUri,
-                request.Nonce
-            );
-
-            await authorizationCodeRepository.AddAsync(authCode, cancellationToken);
-            await unitOfWork.SaveChangesAsync(cancellationToken);
-
-            return new AuthorizeResponseDto(request.RedirectUri, code, request.State);
-        }
-
         public async Task RevokeAsync(string refreshToken, CancellationToken cancellationToken = default)
         {
             var storedToken = await refreshTokenRepository.GetByTokenAsync(refreshToken, cancellationToken);

@@ -9,9 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNet.Security.OAuth.GitHub" Version="9.4.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="9.0.13" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.13" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.13">
       <PrivateAssets>all</PrivateAssets>
@@ -25,6 +22,10 @@
     <ProjectReference Include="..\NoteForge.Application\NoteForge.Application.csproj" />
     <ProjectReference Include="..\NoteForge.Infrastructure\NoteForge.Infrastructure.csproj" />
     <ProjectReference Include="..\NoteForge.Logging\NoteForge.Logging.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
   </ItemGroup>
 
 </Project>

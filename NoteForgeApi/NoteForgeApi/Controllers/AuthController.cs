@@ -36,22 +36,6 @@ namespace NoteForgeApi.Controllers
             return Ok(response);
         }
 
-        [Authorize]
-        [HttpGet("authorize")] // dead code
-        public async Task<IActionResult> Authorize([FromQuery] AuthorizeRequestDto request, CancellationToken cancellationToken)
-        {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var result = await authService.AuthorizeAsync(request, userId, cancellationToken);
-
-            var redirectUrl = $"{result.RedirectUri}?code={result.Code}";
-            if (!string.IsNullOrEmpty(result.State))
-            {
-                redirectUrl += $"&state={result.State}";
-            }
-
-            return Redirect(redirectUrl);
-        }
-
         [HttpPost("revoke")]
         public async Task<IActionResult> Revoke([FromBody] RefreshTokenRequestDto request, CancellationToken cancellationToken)
         {
