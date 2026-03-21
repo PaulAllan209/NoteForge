@@ -20,6 +20,8 @@ builder.Services.AddControllers();
 builder.Services.AddApplicationServices();
 builder.Services.AddRepositories();
 
+builder.Services.AddHttpContextAccessor();
+
 // Add Swagger/OpenApi
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>

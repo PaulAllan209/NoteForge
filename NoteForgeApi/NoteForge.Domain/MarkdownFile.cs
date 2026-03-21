@@ -10,11 +10,12 @@
         public string FileName { get; private set; }
 
         private MarkdownFile() {}
-        public MarkdownFile(AppUser appUser, string blobName, string fileName)
+        public MarkdownFile(int appUserId, string blobName, string fileName, string createdByUserName)
         {
-            AppUser = appUser;
+            AppUserId = appUserId;
             BlobName = blobName;
             FileName = fileName;
+            CreatedBy = createdByUserName;
         }
         
     }

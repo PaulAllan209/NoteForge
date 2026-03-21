@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using NoteForge.Domain.Interfaces;
 using NoteForge.Domain.Interfaces.Repositories;
 using NoteForge.Infrastructure.Repositories;
 
@@ -12,6 +13,7 @@ namespace NoteForge.Infrastructure.Extensions
             services.AddScoped<IBlobStorageRepository, LocalBlobStorageRepository>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
             services.AddScoped<IAuthorizationCodeRepository, AuthorizationCodeRepository>();
+            services.AddScoped<IMarkdownFileRepository, MarkdownFileRepository>();
 
             return services;
         }
